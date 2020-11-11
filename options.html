@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Caroline Patenaude" />
+
+<meta name="date" content="2020-11-11" />
+
+<title>Rmarkdown - Paramétrages utiles</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script src="site_libs/navigation-1.1/sourceembed.js"></script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; } /* Alert */
+code span.an { color: #008000; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #0000ff; } /* ControlFlow */
+code span.ch { color: #008080; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #008000; } /* Comment */
+code span.cv { color: #008000; } /* CommentVar */
+code span.do { color: #008000; } /* Documentation */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.im { } /* Import */
+code span.in { color: #008000; } /* Information */
+code span.kw { color: #0000ff; } /* Keyword */
+code span.op { } /* Operator */
+code span.ot { color: #ff4000; } /* Other */
+code span.pp { color: #ff4000; } /* Preprocessor */
+code span.sc { color: #008080; } /* SpecialChar */
+code span.ss { color: #008080; } /* SpecialString */
+code span.st { color: #008080; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #008080; } /* VerbatimString */
+code span.wa { color: #008000; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+#rmd-source-code {
+  display: none;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Retour à la présentation RMarkdown</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-download-source" href="#">Download Rmd</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">Rmarkdown - Paramétrages utiles</h1>
+<h4 class="author">Caroline Patenaude<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></h4>
+<h4 class="date">2020-11-11</h4>
+
+</div>
+
+
+<p><br></p>
+<div id="table-des-matières" class="section level1">
+<h1><span class="header-section-number">1</span> Table des matières</h1>
+<p>Inclure une table des matières et spécifier (optionnellement) des sous-options de la TDM</p>
+<ol style="list-style-type: decimal">
+<li>Inclure une table des matières, utiliser l’option <code>toc</code></li>
+<li><code>toc_depth</code> pour spécifier le nombre de titres (3 par défaut)</li>
+<li><code>toc_float</code> pour que la TDM soit toujours visible dans la marge gauche</li>
+<li><code>collapsed</code> (<code>TRUE</code> par défaut) pour déterminer si la table est étendue ou compacte par défaut (seulement titres visibles)</li>
+<li><code>smooth_scroll</code> (<code>TRUE</code> par défaut) détermine si la TDM défile en même temps que le défilement de la page</li>
+</ol>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb1-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb1-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb1-5" title="5">    <span class="fu">toc:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="fu">toc_depth:</span><span class="at"> </span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="fu">toc_float:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="fu">collapsed:</span><span class="at"> </span><span class="ch">false</span></a>
+<a class="sourceLine" id="cb1-9" title="9">    <span class="fu">smooth_scroll:</span><span class="at"> </span><span class="ch">false</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="ot">---</span></a></code></pre></div>
+<hr />
+<p></br></p>
+</div>
+<div id="titres-numérotés" class="section level1">
+<h1><span class="header-section-number">2</span> Titres numérotés</h1>
+<p>Numéroter les titres avec l’option <code>number_sections</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb2-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb2-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="fu">number_sections:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="ot">---</span></a></code></pre></div>
+<pre><code># (H1)  = 1.
+## (H2) = 1.1 (attention s&#39;il n&#39;y a pas de H1, ça donnera 0.1)</code></pre>
+<ul>
+<li>Pour ne pas numéroter certains titres: ajouter <code>{-}</code> ou <code>{.unnumbered}</code> après le titre</li>
+</ul>
+<hr />
+<p></br></p>
+</div>
+<div id="transformer-les-sous-titres-en-onglets" class="section level1">
+<h1><span class="header-section-number">3</span> Transformer les sous-titres en onglets</h1>
+<p>Ajouter l’attribut <code>.tabset</code> au titre transforme tous les sous-titres en onglets au lieu de sous-sections (<a href="https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html</a>)</p>
+<p><strong>Code:</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb4-1" title="1"><span class="fu">## Exemple d&#39;onglets {.tabset}</span></a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="fu">### Onglet 1</span></a>
+<a class="sourceLine" id="cb4-4" title="4"></a>
+<a class="sourceLine" id="cb4-5" title="5">Contenu de l&#39;onglet 1</a>
+<a class="sourceLine" id="cb4-6" title="6"></a>
+<a class="sourceLine" id="cb4-7" title="7"><span class="fu">### Onglet 2</span></a>
+<a class="sourceLine" id="cb4-8" title="8"></a>
+<a class="sourceLine" id="cb4-9" title="9">Contenu de l&#39;onglet 2</a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="fu">## {-}</span></a></code></pre></div>
+<ul>
+<li>Il est aussi possible de spécifier 2 attributs supplémentaires pour les onglets:</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li><code>.tabset-fade</code>: les onglets vont disparaitre et apparaitre en se déplacant de l’un à l’autre</li>
+<li><code>.tabset-pills</code> apparence des onglets en “pill”:</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb5-1" title="1"><span class="fu">## Quarterly Results {.tabset .tabset-fade .tabset-pills}</span></a></code></pre></div>
+<ul>
+<li>Pour finir un tabset, commencer un nouveau <em>header</em> du niveau supérieur vide pour continuer avec des paragraphes réguliers</li>
+</ul>
+<p><strong>Résultat:</strong></p>
+<div id="exemple-donglets" class="section level2 tabset">
+<h2><span class="header-section-number">3.1</span> Exemple d’onglets</h2>
+<div id="onglet-1" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Onglet 1</h3>
+<p>Contenu de l’onglet 1</p>
+</div>
+<div id="onglet-2" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Onglet 2</h3>
+<p>Contenu de l’onglet 2</p>
+</div>
+</div>
+<div id="section" class="section level2 unnumbered">
+<h2></h2>
+<hr />
+<p></br></p>
+</div>
+</div>
+<div id="mise-en-forme-des-graphiques" class="section level1">
+<h1><span class="header-section-number">4</span> Mise en forme des graphiques</h1>
+<p>Plusieurs options possibles à inclure dans le YAML:</p>
+<ul>
+<li><p><code>fig_width</code> et <code>fig_height</code>: 7x5 par défaut.</p></li>
+<li><p><code>fig_caption</code> : légende des graphiques.</p></li>
+<li><p><code>dev</code>: gestion des formats de graphiques (<code>png</code> par défaut).</p></li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb6-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb6-5" title="5">    <span class="fu">fig_width:</span><span class="at"> </span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb6-6" title="6">    <span class="fu">fig_height:</span><span class="at"> </span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb6-7" title="7">    <span class="fu">fig_caption:</span><span class="at"> </span><span class="ch">true</span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="ot">---</span></a></code></pre></div>
+<p>Options de mise en forme de graphiques peuvent aussi être indiquées dans chaque bloc:</p>
+<p><code>fig.width=</code> et <code>fig.height=</code> (en pouces), <code>out.width=</code> et <code>out.height=</code> (en %), <code>fig.align=</code> (‘left’, ‘center’, or ‘right’), <code>fig.cap=""</code> (légende), <code>dev=</code> (outil graphique, “png” par défaut ou svg ou jpeg).</p>
+<p><strong>Code:</strong></p>
+<pre><code>```{r, out.width=&#39;25%&#39;, fig.align=&#39;center&#39;, fig.cap=&#39;Une légende&#39;}
+plot(cars)
+```</code></pre>
+<p><strong>Résultat:</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="kw">plot</span>(cars)</a></code></pre></div>
+<div class="figure" style="text-align: center">
+<img src="options_files/figure-html/unnamed-chunk-1-1.png" alt="Une légende" width="25%" />
+<p class="caption">
+Une légende
+</p>
+</div>
+<hr />
+<p></br></p>
+</div>
+<div id="stylescss" class="section level1">
+<h1><span class="header-section-number">5</span> Styles/CSS</h1>
+<div id="appliquer-des-thèmes-prédéfinis" class="section level2">
+<h2><span class="header-section-number">5.1</span> Appliquer des thèmes prédéfinis:</h2>
+<ul>
+<li><p><code>theme</code> : default, cerulean, journal, flatly, darkly, readable, spacelab, united, cosmo, lumen, paper, sandstone, simplex, yeti (null si on ne veut pas de thème, par ex si on veut utiliser son propre css)</p></li>
+<li><p><code>highlight</code> : pour définir l’apparence de la syntaxe: tango, pygments, kate, monochrome, espresso, zenburn, haddock, textmate (ou option <code>null</code>)</p></li>
+</ul>
+<p><a href="https://www.datadreaming.org/post/r-markdown-theme-gallery/">Voir theme gallery</a></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb9-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb9-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="fu">theme:</span><span class="at"> united</span></a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="fu">highlight:</span><span class="at"> tango</span></a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="ot">---</span></a></code></pre></div>
+<p></br></p>
+</div>
+<div id="définir-sa-propre-feuille-css" class="section level2">
+<h2><span class="header-section-number">5.2</span> Définir sa propre feuille CSS :</h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb10-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb10-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb10-5" title="5">    <span class="fu">theme:</span><span class="at"> </span><span class="ch">null</span></a>
+<a class="sourceLine" id="cb10-6" title="6">    <span class="fu">highlight:</span><span class="at"> </span><span class="ch">null</span></a>
+<a class="sourceLine" id="cb10-7" title="7">    <span class="fu">css:</span><span class="at"> styles.css</span></a>
+<a class="sourceLine" id="cb10-8" title="8"><span class="ot">---</span></a></code></pre></div>
+<p></br></p>
+</div>
+<div id="appliquer-des-styles-prédéfinis-sur-des-blocs-de-résultats" class="section level2">
+<h2><span class="header-section-number">5.3</span> Appliquer des styles prédéfinis sur des blocs de résultats</h2>
+<ul>
+<li>Personnaliser les blocs de code avec les options <code>class.source</code> et <code>class.output</code>: <a href="https://getbootstrap.com/docs/3.4/css/#helper-classes">classes CSS prédéfinies</a> qu’on peut changer ou non: “bg-primary”, “bg-success”, “bg-info”, “bg-warning”, “bg-danger”</li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>```{r class.output=&quot;bg-info&quot;}
+1 + 1
+```</code></pre>
+<p><strong>Résultat:</strong></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></a></code></pre></div>
+<pre class="bg-info"><code>## [1] 2</code></pre>
+<p><strong>Code:</strong></p>
+<pre><code>```{r class.output=&quot;bg-danger&quot;}
+1 + 1
+```</code></pre>
+<p><strong>Résultat:</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1"><span class="dv">1</span><span class="op">+</span><span class="dv">1</span></a></code></pre></div>
+<pre class="bg-danger"><code>## [1] 2</code></pre>
+<p><br></p>
+</div>
+<div id="définir-ses-propres-styles-dans-le-fichier-.rmd" class="section level2">
+<h2><span class="header-section-number">5.4</span> Définir ses propres styles dans le fichier .rmd</h2>
+<ol style="list-style-type: decimal">
+<li>Définir le style pour une classe <code>resultat</code>:</li>
+</ol>
+<div class="sourceCode" id="cb17"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb17-1" title="1">&lt;style type=<span class="st">&quot;text/css&quot;</span>&gt;</a>
+<a class="sourceLine" id="cb17-2" title="2">.resultat <span class="kw">{</span></a>
+<a class="sourceLine" id="cb17-3" title="3">  <span class="fu">background-color:</span><span class="at"> red;</span></a>
+<a class="sourceLine" id="cb17-4" title="4"><span class="at">  border: 3px solid blue;</span></a>
+<a class="sourceLine" id="cb17-5" title="5"><span class="at">  font-weight: bold;</span></a>
+<a class="sourceLine" id="cb17-6" title="6"><span class="kw">}</span></a>
+<a class="sourceLine" id="cb17-7" title="7">&lt;/style&gt;</a></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Assigner la classe <code>resultat</code> aux blocs avec l’option <code>class.source</code>.</li>
+</ol>
+<p><strong>Code:</strong></p>
+<pre><code>```{r class.source=&quot;resultat&quot;}
+mtcars[1:5, &quot;mpg&quot;]
+```</code></pre>
+<p><strong>Résultat:</strong></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r resultat"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">mtcars[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="st">&quot;mpg&quot;</span>]</a></code></pre></div>
+<pre><code>## [1] 21.0 21.0 22.8 21.4 18.7</code></pre>
+<hr />
+<p></br></p>
+</div>
+</div>
+<div id="fermer-les-blocs-de-code" class="section level1">
+<h1><span class="header-section-number">6</span> Fermer les blocs de code</h1>
+<p>Pour limiter la place que prennent les blocs de code, il possible de les “fermer” par défaut avec l’option <code>code_fold</code> dans le champ html_document de l’entête ou de limiter la longueur avec un <a href="https://bookdown.org/yihui/rmarkdown-cookbook/html-scroll.html">scroll dans css</a></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb21-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb21-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb21-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb21-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb21-5" title="5">    <span class="fu">code_folding:</span><span class="at"> hide</span></a>
+<a class="sourceLine" id="cb21-6" title="6"><span class="ot">---</span></a></code></pre></div>
+<p>Il n’est pas possible de plier seulement le résultat de code avec des options de blocs de code mais peut se faire avec du javascript. Il est toutefois possible de limiter la hauteur du bloc en ajoutant un déroulement avec les options <code>attr.source</code> et <code>attr.output</code></p>
+<p><strong>Code:</strong></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode md"><code class="sourceCode markdown"><a class="sourceLine" id="cb22-1" title="1"><span class="bn">```{r, attr.output=&#39;style=&quot;max-height: 100px;&quot;&#39;}</span></a>
+<a class="sourceLine" id="cb22-2" title="2"><span class="bn">1:300</span></a>
+<a class="sourceLine" id="cb22-3" title="3"><span class="bn">```</span></a></code></pre></div>
+<p><strong>Résultat:</strong></p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1"><span class="dv">1</span><span class="op">:</span><span class="dv">300</span></a></code></pre></div>
+<pre style="max-height: 100px;"><code>##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+## [163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
+## [181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
+## [199] 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216
+## [217] 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234
+## [235] 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252
+## [253] 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270
+## [271] 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288
+## [289] 289 290 291 292 293 294 295 296 297 298 299 300</code></pre>
+<p>Voir: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/hook-scroll.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/hook-scroll.html</a></p>
+<p>Pour de bonnes modifs html: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html</a></p>
+<hr />
+<p></br></p>
+</div>
+<div id="blocs-de-code-en-appendice" class="section level1">
+<h1><span class="header-section-number">7</span> Blocs de code en appendice</h1>
+<ul>
+<li>Par défaut les blocs de code et leurs résultats apparaissent à leur emplacement dans le texte, mais on peut ajouter tous les blocs de code à la fin du document en <a href="https://bookdown.org/yihui/rmarkdown-cookbook/code-appendix.html">appendice</a> en ajoutant un bloc de code avec les arguments <code>ref.label</code> et la fonction <code>knitr::all_labels</code>.</li>
+<li>L’argument <code>echo = FALSE</code> devra être ajouté aux blocs de code.</li>
+</ul>
+<p><strong>code:</strong></p>
+<pre><code>```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}
+```</code></pre>
+<hr />
+<p></br></p>
+</div>
+<div id="séparer-le-bloc-des-résultats" class="section level1">
+<h1><span class="header-section-number">8</span> Séparer le bloc des résultats</h1>
+<p>Présenter le résultat d’un bloc de codes ailleurs que directement dessous</p>
+<ul>
+<li>On présente le bloc de code</li>
+</ul>
+<pre><code>```{r graphique1, dev=&#39;png&#39;, fig.show=&#39;hide&#39;}
+plot(cars)
+```</code></pre>
+<ul>
+<li>Dans une autre section du document, on appel le résultat d’un bloc précédant avec la fonction <code>knitr::fig_chunk</code> et son <em>label</em>: <code>(options_files/figure-html/graphique1-1.png)</code></li>
+</ul>
+<pre><code>```{r}
+![Graphique provenant d&#39;un bloc précédant](options_files/figure-html/graphique1-1.png)`
+```</code></pre>
+<hr />
+<p></br></p>
+</div>
+<div id="téléchargement-du-fichier-.rmd" class="section level1">
+<h1><span class="header-section-number">9</span> Téléchargement du fichier .rmd</h1>
+<p>Ajouter un bouton Code - Download .Rmd pour permettre le téléchargement du fichier R Markdown avec l’options <code>code_download</code> dans le YAML</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb28-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb28-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb28-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb28-5" title="5">    <span class="fu">code_download:</span><span class="at"> </span><span class="ch">TRUE</span></a>
+<a class="sourceLine" id="cb28-6" title="6"><span class="ot">---</span></a></code></pre></div>
+<hr />
+<p></br></p>
+</div>
+<div id="tableaux" class="section level1">
+<h1><span class="header-section-number">10</span> Tableaux</h1>
+<ul>
+<li><p>Par défaut R Markdown présente les tableaux comme dans la console R mais plusieurs options permettent de modifier leur mise en page.</p></li>
+<li><p>La modification de tableaux peut être plus ou moins complexe et peut varier selon le format de sortie.</p></li>
+<li><p>Façon la plus efficace de présenter un talbeau est avec la fonction <a href="https://bookdown.org/yihui/rmarkdown-cookbook/kable.html#kable-formats">knitr::kable()</a> qui possède plusieurs arguments pour paramétrer la présentation de tableaux.</p></li>
+<li><p>Voir aussi <a href="https://haozhu233.github.io/kableExtra/">package kableExtra</a> qui peut créer tableau pour html, pdf et word.</p></li>
+<li><p>Peut inclure légende avec option caption =</p></li>
+</ul>
+<p><strong>Code:</strong></p>
+<pre><code>```{r table-cars, results = &quot;asis&quot;}
+knitr::kable(cars[1:5, ], caption = &#39;Un titre&#39;)
+```</code></pre>
+<p><strong>Résultat:</strong></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">knitr<span class="op">::</span><span class="kw">kable</span>(cars[<span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, ], <span class="dt">caption =</span> <span class="st">&#39;Un titre&#39;</span>)</a></code></pre></div>
+<table>
+<caption>Un titre</caption>
+<thead>
+<tr class="header">
+<th align="right">speed</th>
+<th align="right">dist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">4</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="right">10</td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="right">7</td>
+<td align="right">22</td>
+</tr>
+<tr class="odd">
+<td align="right">8</td>
+<td align="right">16</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p></br></p>
+<div id="modifier-la-présentation-des-tableaux" class="section level3">
+<h3><span class="header-section-number">10.0.1</span> Modifier la présentation des tableaux</h3>
+<ul>
+<li>Option <code>df_print</code> dans le YAML pour paramétrer la présentation de tableaux pour les documents <code>html_document</code></li>
+<li>Valeurs possibles: default, kable, tibble, paged (paginer les lignes de tableaux)</li>
+</ul>
+<div class="sourceCode" id="cb31"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb31-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb31-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb31-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb31-5" title="5">    <span class="fu">df_print:</span><span class="at"> paged</span></a>
+<a class="sourceLine" id="cb31-6" title="6"><span class="ot">---</span></a></code></pre></div>
+<pre class="{r}"><code>mtcars</code></pre>
+<p>Pour l’option <code>paged</code>, plusieurs arguments peuvent être spécifiés dans chaque code chunk ( max.print, rows.print, cols.print, pages.print,rownames.print … )</p>
+<p><strong>Code:</strong></p>
+<pre><code>```{r cols.print=3, rows.print=3}
+mtcars
+```</code></pre>
+<p><strong>Résultats:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">mtcars</a></code></pre></div>
+<div data-pagedtable="false">
+<script data-pagedtable-source type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mpg"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["cyl"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["disp"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["hp"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["drat"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["wt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["qsec"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["vs"],"name":[8],"type":["dbl"],"align":["right"]},{"label":["am"],"name":[9],"type":["dbl"],"align":["right"]},{"label":["gear"],"name":[10],"type":["dbl"],"align":["right"]},{"label":["carb"],"name":[11],"type":["dbl"],"align":["right"]}],"data":[{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.620","7":"16.46","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4"},{"1":"21.0","2":"6","3":"160.0","4":"110","5":"3.90","6":"2.875","7":"17.02","8":"0","9":"1","10":"4","11":"4","_rn_":"Mazda RX4 Wag"},{"1":"22.8","2":"4","3":"108.0","4":"93","5":"3.85","6":"2.320","7":"18.61","8":"1","9":"1","10":"4","11":"1","_rn_":"Datsun 710"},{"1":"21.4","2":"6","3":"258.0","4":"110","5":"3.08","6":"3.215","7":"19.44","8":"1","9":"0","10":"3","11":"1","_rn_":"Hornet 4 Drive"},{"1":"18.7","2":"8","3":"360.0","4":"175","5":"3.15","6":"3.440","7":"17.02","8":"0","9":"0","10":"3","11":"2","_rn_":"Hornet Sportabout"},{"1":"18.1","2":"6","3":"225.0","4":"105","5":"2.76","6":"3.460","7":"20.22","8":"1","9":"0","10":"3","11":"1","_rn_":"Valiant"},{"1":"14.3","2":"8","3":"360.0","4":"245","5":"3.21","6":"3.570","7":"15.84","8":"0","9":"0","10":"3","11":"4","_rn_":"Duster 360"},{"1":"24.4","2":"4","3":"146.7","4":"62","5":"3.69","6":"3.190","7":"20.00","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 240D"},{"1":"22.8","2":"4","3":"140.8","4":"95","5":"3.92","6":"3.150","7":"22.90","8":"1","9":"0","10":"4","11":"2","_rn_":"Merc 230"},{"1":"19.2","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.30","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280"},{"1":"17.8","2":"6","3":"167.6","4":"123","5":"3.92","6":"3.440","7":"18.90","8":"1","9":"0","10":"4","11":"4","_rn_":"Merc 280C"},{"1":"16.4","2":"8","3":"275.8","4":"180","5":"3.07","6":"4.070","7":"17.40","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SE"},{"1":"17.3","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.730","7":"17.60","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SL"},{"1":"15.2","2":"8","3":"275.8","4":"180","5":"3.07","6":"3.780","7":"18.00","8":"0","9":"0","10":"3","11":"3","_rn_":"Merc 450SLC"},{"1":"10.4","2":"8","3":"472.0","4":"205","5":"2.93","6":"5.250","7":"17.98","8":"0","9":"0","10":"3","11":"4","_rn_":"Cadillac Fleetwood"},{"1":"10.4","2":"8","3":"460.0","4":"215","5":"3.00","6":"5.424","7":"17.82","8":"0","9":"0","10":"3","11":"4","_rn_":"Lincoln Continental"},{"1":"14.7","2":"8","3":"440.0","4":"230","5":"3.23","6":"5.345","7":"17.42","8":"0","9":"0","10":"3","11":"4","_rn_":"Chrysler Imperial"},{"1":"32.4","2":"4","3":"78.7","4":"66","5":"4.08","6":"2.200","7":"19.47","8":"1","9":"1","10":"4","11":"1","_rn_":"Fiat 128"},{"1":"30.4","2":"4","3":"75.7","4":"52","5":"4.93","6":"1.615","7":"18.52","8":"1","9":"1","10":"4","11":"2","_rn_":"Honda Civic"},{"1":"33.9","2":"4","3":"71.1","4":"65","5":"4.22","6":"1.835","7":"19.90","8":"1","9":"1","10":"4","11":"1","_rn_":"Toyota Corolla"},{"1":"21.5","2":"4","3":"120.1","4":"97","5":"3.70","6":"2.465","7":"20.01","8":"1","9":"0","10":"3","11":"1","_rn_":"Toyota Corona"},{"1":"15.5","2":"8","3":"318.0","4":"150","5":"2.76","6":"3.520","7":"16.87","8":"0","9":"0","10":"3","11":"2","_rn_":"Dodge Challenger"},{"1":"15.2","2":"8","3":"304.0","4":"150","5":"3.15","6":"3.435","7":"17.30","8":"0","9":"0","10":"3","11":"2","_rn_":"AMC Javelin"},{"1":"13.3","2":"8","3":"350.0","4":"245","5":"3.73","6":"3.840","7":"15.41","8":"0","9":"0","10":"3","11":"4","_rn_":"Camaro Z28"},{"1":"19.2","2":"8","3":"400.0","4":"175","5":"3.08","6":"3.845","7":"17.05","8":"0","9":"0","10":"3","11":"2","_rn_":"Pontiac Firebird"},{"1":"27.3","2":"4","3":"79.0","4":"66","5":"4.08","6":"1.935","7":"18.90","8":"1","9":"1","10":"4","11":"1","_rn_":"Fiat X1-9"},{"1":"26.0","2":"4","3":"120.3","4":"91","5":"4.43","6":"2.140","7":"16.70","8":"0","9":"1","10":"5","11":"2","_rn_":"Porsche 914-2"},{"1":"30.4","2":"4","3":"95.1","4":"113","5":"3.77","6":"1.513","7":"16.90","8":"1","9":"1","10":"5","11":"2","_rn_":"Lotus Europa"},{"1":"15.8","2":"8","3":"351.0","4":"264","5":"4.22","6":"3.170","7":"14.50","8":"0","9":"1","10":"5","11":"4","_rn_":"Ford Pantera L"},{"1":"19.7","2":"6","3":"145.0","4":"175","5":"3.62","6":"2.770","7":"15.50","8":"0","9":"1","10":"5","11":"6","_rn_":"Ferrari Dino"},{"1":"15.0","2":"8","3":"301.0","4":"335","5":"3.54","6":"3.570","7":"14.60","8":"0","9":"1","10":"5","11":"8","_rn_":"Maserati Bora"},{"1":"21.4","2":"4","3":"121.0","4":"109","5":"4.11","6":"2.780","7":"18.60","8":"1","9":"1","10":"4","11":"2","_rn_":"Volvo 142E"}],"options":{"columns":{"min":{},"max":[3]},"rows":{"min":[3],"max":[3]},"pages":{}}}
+  </script>
+</div>
+<hr />
+<p></br></p>
+</div>
+</div>
+<div id="citations-et-bibliographie" class="section level1">
+<h1><span class="header-section-number">11</span> Citations et bibliographie</h1>
+<ul>
+<li>Plusieurs façons d’insérer des citations mais la plus recommandée est d’utiliser de télécharger ses références dans un fichier BibTeX (.bib).</li>
+<li>Inclure ensuite dans l’entête l’argument bibliography dans le YAML et défini sa valeur avec le chemin vers le fichier BibTeX sur son poste.</li>
+<li>Pour changer le format des citations, télécharger le style (fichier csl) à partir de la liste de <a href="https://www.zotero.org/styles">Zotero</a> et l’inclure aussi dans le YAML.</li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb35-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Exemple&quot;</span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="fu">output:</span></a>
+<a class="sourceLine" id="cb35-4" title="4">  <span class="fu">html_document:</span></a>
+<a class="sourceLine" id="cb35-5" title="5"><span class="fu">bibliography:</span><span class="at"> citations.bib</span></a>
+<a class="sourceLine" id="cb35-6" title="6"><span class="fu">csl:</span><span class="at"> apa-5th-edition.csl</span></a>
+<a class="sourceLine" id="cb35-7" title="7"><span class="ot">---</span></a></code></pre></div>
+<ul>
+<li><p>Par défaut la bibliographie apparaitra à la fin du document, mais on peut forcer le déplacement des références en utilisant un div: <code>&lt;div id="refs"&gt;&lt;/div&gt;</code></p></li>
+<li><p>package citr</p></li>
+<li><p>Après dans texte inclure <span class="citation">[@Ref-1]</span> ou <span class="citation">[@ref-1; @ref-2; @ref-3]</span> pour parenthèses ou <span class="citation">@R-base</span> pour référer à entrée dans le fichier. Pandoc va générer automatiquement une référence à la fin du document.</p></li>
+<li><p>Pour inclure un titre dans la bibliographie qui n’a pas été citée dans le document, il faut définir un champ nocite dans l’entête</p></li>
+</ul>
+<pre><code>---
+nocite: &#39;@*&#39;
+---
+
+---
+nocite: |
+  @cit1, @cit2
+---</code></pre>
+<p><br> <a href="https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html">Bibliographies and Citations</a></p>
+<hr />
+<p></br></p>
+</div>
+<div id="transformer-un-script-en-présentation-.rmd" class="section level1">
+<h1><span class="header-section-number">12</span> Transformer un script en présentation .Rmd</h1>
+<ul>
+<li>Il est possible de générer un document de présentation directement à partir d’un fichier de script R dans RStudio avec la fonction <code>knitr::spin()</code> - (Ctrl / Cmd + Shift + K).</li>
+<li>Solution utile si pas beaucoup de texte à ajouter dans analyse.</li>
+<li>Il faudra par contre appliquer une syntaxe particulière à son fichier de script.</li>
+<li>Il est aussi possible de faire le contraire et de transformer un document markdown en script avec <code>knit::purl</code>.</li>
+</ul>
+<p><br></p>
+<ul>
+<li>Voir : <a href="https://bookdown.org/yihui/rmarkdown-cookbook/spin.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/spin.html</a></li>
+<li>Voir : <a href="https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/" class="uri">https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/</a></li>
+</ul>
+<hr />
+<p></br></p>
+</div>
+<div id="document-word" class="section level1">
+<h1><span class="header-section-number">13</span> Document Word</h1>
+<p>Pour créer un document Word à partir de R Markdown, on spécifie le format <code>word_document</code> dans l’entête YAML du document.</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb37-1" title="1"><span class="ot">---</span></a>
+<a class="sourceLine" id="cb37-2" title="2"><span class="fu">title:</span><span class="at"> </span><span class="st">&quot;Habits&quot;</span></a>
+<a class="sourceLine" id="cb37-3" title="3"><span class="fu">author:</span><span class="at"> John Doe</span></a>
+<a class="sourceLine" id="cb37-4" title="4"><span class="fu">date:</span><span class="at"> March 22, 2005</span></a>
+<a class="sourceLine" id="cb37-5" title="5"><span class="fu">output:</span><span class="at"> </span></a>
+<a class="sourceLine" id="cb37-6" title="6">  <span class="fu">word_document:</span></a>
+<a class="sourceLine" id="cb37-7" title="7">    <span class="fu">reference_docx:</span><span class="at"> my-styles.docx</span></a>
+<a class="sourceLine" id="cb37-8" title="8"><span class="ot">---</span></a></code></pre></div>
+<ul>
+<li>On peut créer un <em>template</em> <em>(style reference document</em>) pour modifier la mise en page du document word.</li>
+<li>Ce template doit débuter par un document Rmd avec le format word_document.</li>
+<li>Ouvrir ensuite le document dans Word et modifier les styles et enregistrer sous un autre nom en fichier <code>.docx</code> pour ensuite l’ajouter dans le YAML.</li>
+</ul>
+<p>Voir:</p>
+<ul>
+<li><a href="https://vimeo.com/110804387" class="uri">https://vimeo.com/110804387</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html</a></li>
+<li><a href="https://rmarkdown.rstudio.com/articles_docx.html" class="uri">https://rmarkdown.rstudio.com/articles_docx.html</a></li>
+</ul>
+<hr />
+<p></br></p>
+</div>
+<div id="bookdown" class="section level1">
+<h1><span class="header-section-number">14</span> Bookdown</h1>
+<ul>
+<li><p>Dans RStudio: File -&gt; New Project -&gt; New Directory -&gt; Book Project using bookdown</p></li>
+<li><p>Créer pour rédiger de longs documents comme un livre à partir de plusieurs documents R Markdown où généralement chaque fichier est un chapitre.</p></li>
+<li><p>Le premier document est généralement nommé index.Rmd et c’est le seul où se trouve le YAML.</p></li>
+<li><p>Doit également trouver dans l’entête: site: bookdown::bookdown_site pour que rmarkdown sache qu’il faut utiliser bookdown pour construire tous les fichiers et pas seulement un fichier rmd.</p></li>
+<li><p>Plusieurs formats de output peuvent être utilisés:</p>
+<ul>
+<li>bookdown::gitbook</li>
+<li>bookdown::pdf_book</li>
+<li>bookdown::word_document2</li>
+<li>bookdown::epub_book</li>
+</ul></li>
+</ul>
+<p>Construit les fichier en appellant la fonction bookdown::render_book(‘index.Rmd’)</p>
+<ul>
+<li><a href="https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/">Écrire sa thèse avec bookdown</a></li>
+<li><a href="https://github.com/rbind">Exemples de sites web avec blogdown</a></li>
+</ul>
+<style>
+.resultat {
+  background-color: red;
+  border: 3px solid blue;
+  font-weight: bold;
+}
+</style>
+<p>verbatim inline expression</p>
+<p><code>`r 1+1`</code></p>
+<p>Verbatim code chunks</p>
+<pre><code>```{r, eval=TRUE}
+1 + 1
+```</code></pre>
+<p>bloc gris texte noir</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode markdown"><code class="sourceCode markdown"><a class="sourceLine" id="cb39-1" title="1"><span class="fu"># Titre non numéroté {-}</span></a></code></pre></div>
+<p>bloc gris texte vert</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode yaml"><code class="sourceCode yaml"><a class="sourceLine" id="cb40-1" title="1"><span class="co"># Titre non numéroté {-}</span></a></code></pre></div>
+<p>bloc blanc texte noir ``` # Titre non numéroté {-}</p>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Institution: Université de Montréal, <a href="mailto:caroline.patenaude@umontreal.ca" class="email">caroline.patenaude@umontreal.ca</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlJtYXJrZG93biAtIFBhcmFtw6l0cmFnZXMgdXRpbGVzIg0KYXV0aG9yOiAiQ2Fyb2xpbmUgUGF0ZW5hdWRlXltJbnN0aXR1dGlvbjogVW5pdmVyc2l0w6kgZGUgTW9udHLDqWFsLCBjYXJvbGluZS5wYXRlbmF1ZGVAdW1vbnRyZWFsLmNhXSINCmRhdGU6ICJgciBTeXMuRGF0ZSgpYCINCm91dHB1dDogDQogIGh0bWxfZG9jdW1lbnQ6IA0KICAgIHRoZW1lOiB5ZXRpDQogICAgaGlnaGxpZ2h0OiBoYWRkb2NrDQogICAgdG9jOiB0cnVlDQogICAgdG9jX2Zsb2F0OiANCiAgICAgIGNvbGxhcHNlZDogZmFsc2UNCiAgICAgIFNtb290aF9zY3JvbGw6IGZhbHNlDQogICAgdG9jX2RlcHRoOiAzDQogICAgY29kZV9kb3dubG9hZDogdHJ1ZQ0KICAgIGRmX3ByaW50OiBwYWdlZA0KICAgIG51bWJlcl9zZWN0aW9uczogdHJ1ZQ0KLS0tDQoNCmBgYHtyIHNldHVwLCBpbmNsdWRlPUZBTFNFfQ0Ka25pdHI6Om9wdHNfY2h1bmskc2V0KGVjaG8gPSBUUlVFKQ0KYGBgDQoNCjxicj4NCg0KIyBUYWJsZSBkZXMgbWF0acOocmVzDQoNCkluY2x1cmUgdW5lIHRhYmxlIGRlcyBtYXRpw6hyZXMgZXQgc3DDqWNpZmllciAob3B0aW9ubmVsbGVtZW50KSBkZXMgc291cy1vcHRpb25zIGRlIGxhIFRETSANCg0KMS4gSW5jbHVyZSB1bmUgdGFibGUgZGVzIG1hdGnDqHJlcywgdXRpbGlzZXIgbCdvcHRpb24gYHRvY2AgDQoyLiBgdG9jX2RlcHRoYCBwb3VyIHNww6ljaWZpZXIgbGUgbm9tYnJlIGRlIHRpdHJlcyAoMyBwYXIgZMOpZmF1dCkNCjMuIGB0b2NfZmxvYXRgIHBvdXIgcXVlIGxhIFRETSBzb2l0IHRvdWpvdXJzIHZpc2libGUgZGFucyBsYSBtYXJnZSBnYXVjaGUgDQo0LiBgY29sbGFwc2VkYCAoYFRSVUVgIHBhciBkw6lmYXV0KSBwb3VyIGTDqXRlcm1pbmVyIHNpIGxhIHRhYmxlIGVzdCDDqXRlbmR1ZSBvdSBjb21wYWN0ZSBwYXIgZMOpZmF1dCAoc2V1bGVtZW50IHRpdHJlcyB2aXNpYmxlcykNCjUuIGBzbW9vdGhfc2Nyb2xsYCAoYFRSVUVgIHBhciBkw6lmYXV0KSBkw6l0ZXJtaW5lIHNpIGxhIFRETSBkw6lmaWxlIGVuIG3Dqm1lIHRlbXBzIHF1ZSBsZSBkw6lmaWxlbWVudCBkZSBsYSBwYWdlDQoNCg0KYGBgeWFtbA0KLS0tDQp0aXRsZTogIkV4ZW1wbGUiDQpvdXRwdXQ6DQogIGh0bWxfZG9jdW1lbnQ6DQogICAgdG9jOiB0cnVlDQogICAgdG9jX2RlcHRoOiAyDQogICAgdG9jX2Zsb2F0OiB0cnVlDQogICAgY29sbGFwc2VkOiBmYWxzZQ0KICAgIHNtb290aF9zY3JvbGw6IGZhbHNlDQotLS0NCmBgYA0KDQoqKioNCg0KPC9icj4NCg0KIyBUaXRyZXMgbnVtw6lyb3TDqXMNCg0KTnVtw6lyb3RlciBsZXMgdGl0cmVzIGF2ZWMgbCdvcHRpb24gYG51bWJlcl9zZWN0aW9uc2AgDQoNCmBgYHlhbWwNCi0tLQ0KdGl0bGU6ICJFeGVtcGxlIg0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIG51bWJlcl9zZWN0aW9uczogdHJ1ZQ0KLS0tDQpgYGANCg0KYGBgDQojIChIMSkgID0gMS4NCiMjIChIMikgPSAxLjEgKGF0dGVudGlvbiBzJ2lsIG4neSBhIHBhcyBkZSBIMSwgw6dhIGRvbm5lcmEgMC4xKQ0KYGBgDQoNCi0gUG91ciBuZSBwYXMgbnVtw6lyb3RlciBjZXJ0YWlucyB0aXRyZXM6IGFqb3V0ZXIgYHstfWAgb3UgYHsudW5udW1iZXJlZH1gIGFwcsOocyBsZSB0aXRyZQ0KDQoNCioqKg0KDQo8L2JyPg0KDQojIFRyYW5zZm9ybWVyIGxlcyBzb3VzLXRpdHJlcyBlbiBvbmdsZXRzIA0KDQpBam91dGVyIGwnYXR0cmlidXQgYC50YWJzZXRgIGF1IHRpdHJlIHRyYW5zZm9ybWUgdG91cyBsZXMgc291cy10aXRyZXMgZW4gb25nbGV0cyBhdSBsaWV1IGRlIHNvdXMtc2VjdGlvbnMgKGh0dHBzOi8vYm9va2Rvd24ub3JnL3lpaHVpL3JtYXJrZG93bi1jb29rYm9vay9odG1sLXRhYnMuaHRtbCkNCg0KKipDb2RlOioqDQoNCmBgYG1hcmtkb3duDQojIyBFeGVtcGxlIGQnb25nbGV0cyB7LnRhYnNldH0NCg0KIyMjIE9uZ2xldCAxDQoNCkNvbnRlbnUgZGUgbCdvbmdsZXQgMQ0KDQojIyMgT25nbGV0IDINCg0KQ29udGVudSBkZSBsJ29uZ2xldCAyDQoNCiMjIHstfQ0KYGBgDQoNCi0gSWwgZXN0IGF1c3NpIHBvc3NpYmxlIGRlIHNww6ljaWZpZXIgMiBhdHRyaWJ1dHMgc3VwcGzDqW1lbnRhaXJlcyBwb3VyIGxlcyBvbmdsZXRzOiANCg0KMS4gYC50YWJzZXQtZmFkZWA6IGxlcyBvbmdsZXRzIHZvbnQgZGlzcGFyYWl0cmUgZXQgYXBwYXJhaXRyZSBlbiBzZSBkw6lwbGFjYW50IGRlIGwndW4gw6AgbCdhdXRyZQ0KMi4gYC50YWJzZXQtcGlsbHNgIGFwcGFyZW5jZSBkZXMgb25nbGV0cyBlbiAicGlsbCI6DQoNCmBgYG1hcmtkb3duDQojIyBRdWFydGVybHkgUmVzdWx0cyB7LnRhYnNldCAudGFic2V0LWZhZGUgLnRhYnNldC1waWxsc30NCmBgYA0KDQotIFBvdXIgZmluaXIgdW4gdGFic2V0LCBjb21tZW5jZXIgdW4gbm91dmVhdSAqaGVhZGVyKiBkdSBuaXZlYXUgc3Vww6lyaWV1ciB2aWRlIHBvdXIgY29udGludWVyIGF2ZWMgZGVzIHBhcmFncmFwaGVzIHLDqWd1bGllcnMgDQoNCg0KKipSw6lzdWx0YXQ6KioNCg0KIyMgRXhlbXBsZSBkJ29uZ2xldHMgey50YWJzZXR9DQoNCiMjIyBPbmdsZXQgMQ0KDQpDb250ZW51IGRlIGwnb25nbGV0IDENCg0KIyMjIE9uZ2xldCAyDQoNCkNvbnRlbnUgZGUgbCdvbmdsZXQgMg0KDQojIyB7LX0NCg0KDQoqKioNCg0KPC9icj4NCg0KIyBNaXNlIGVuIGZvcm1lIGRlcyBncmFwaGlxdWVzDQoNClBsdXNpZXVycyBvcHRpb25zIHBvc3NpYmxlcyDDoCBpbmNsdXJlIGRhbnMgbGUgWUFNTDoNCg0KLSBgZmlnX3dpZHRoYCBldCAgYGZpZ19oZWlnaHRgOiA3eDUgcGFyIGTDqWZhdXQuDQoNCi0gYGZpZ19jYXB0aW9uYCA6IGzDqWdlbmRlIGRlcyBncmFwaGlxdWVzLg0KDQotIGBkZXZgOiBnZXN0aW9uIGRlcyBmb3JtYXRzIGRlIGdyYXBoaXF1ZXMgKGBwbmdgIHBhciBkw6lmYXV0KS4NCg0KDQpgYGB5YW1sDQotLS0NCnRpdGxlOiAiRXhlbXBsZSINCm91dHB1dDoNCiAgaHRtbF9kb2N1bWVudDoNCiAgICBmaWdfd2lkdGg6IDUNCiAgICBmaWdfaGVpZ2h0OiA0DQogICAgZmlnX2NhcHRpb246IHRydWUNCi0tLQ0KYGBgDQpPcHRpb25zIGRlIG1pc2UgZW4gZm9ybWUgZGUgZ3JhcGhpcXVlcyBwZXV2ZW50IGF1c3NpIMOqdHJlIGluZGlxdcOpZXMgZGFucyBjaGFxdWUgYmxvYzogIA0KDQpgZmlnLndpZHRoPWAgZXQgYGZpZy5oZWlnaHQ9YCAoZW4gcG91Y2VzKSwgYG91dC53aWR0aD1gIGV0IGBvdXQuaGVpZ2h0PWAgKGVuICUpLCBgZmlnLmFsaWduPWAgKCdsZWZ0JywgJ2NlbnRlcicsIG9yICdyaWdodCcpLCBgZmlnLmNhcD0iImAgKGzDqWdlbmRlKSwgYGRldj1gIChvdXRpbCBncmFwaGlxdWUsICJwbmciIHBhciBkw6lmYXV0IG91IHN2ZyBvdSBqcGVnKS4NCg0KKipDb2RlOioqDQpgYGBgDQpgYGB7ciwgb3V0LndpZHRoPScyNSUnLCBmaWcuYWxpZ249J2NlbnRlcicsIGZpZy5jYXA9J1VuZSBsw6lnZW5kZSd9YHIgJydgDQpwbG90KGNhcnMpDQpgYGANCmBgYGANCg0KKipSw6lzdWx0YXQ6KioNCmBgYHtyLCBvdXQud2lkdGg9JzI1JScsIGZpZy5hbGlnbj0nY2VudGVyJywgZmlnLmNhcD0nVW5lIGzDqWdlbmRlJ30NCnBsb3QoY2FycykNCmBgYA0KDQoqKioNCg0KPC9icj4NCg0KIyBTdHlsZXMvQ1NTDQoNCiMjIEFwcGxpcXVlciBkZXMgdGjDqG1lcyBwcsOpZMOpZmluaXM6DQoNCi0gYHRoZW1lYCA6IGRlZmF1bHQsIGNlcnVsZWFuLCBqb3VybmFsLCBmbGF0bHksIGRhcmtseSwgcmVhZGFibGUsIHNwYWNlbGFiLCB1bml0ZWQsIGNvc21vLCBsdW1lbiwgcGFwZXIsIHNhbmRzdG9uZSwgc2ltcGxleCwgeWV0aSAobnVsbCBzaSBvbiBuZSB2ZXV0IHBhcyBkZSB0aMOobWUsIHBhciBleCBzaSBvbiB2ZXV0IHV0aWxpc2VyIHNvbiBwcm9wcmUgY3NzKQ0KDQotIGBoaWdobGlnaHRgIDogcG91ciBkw6lmaW5pciBsJ2FwcGFyZW5jZSBkZSBsYSBzeW50YXhlOiB0YW5nbywgcHlnbWVudHMsIGthdGUsIG1vbm9jaHJvbWUsIGVzcHJlc3NvLCB6ZW5idXJuLCBoYWRkb2NrLCB0ZXh0bWF0ZSAob3Ugb3B0aW9uIGBudWxsYCkgDQoNCltWb2lyIHRoZW1lIGdhbGxlcnldKGh0dHBzOi8vd3d3LmRhdGFkcmVhbWluZy5vcmcvcG9zdC9yLW1hcmtkb3duLXRoZW1lLWdhbGxlcnkvKQ0KDQpgYGB5YW1sDQotLS0NCnRpdGxlOiAiRXhlbXBsZSINCm91dHB1dDoNCiAgaHRtbF9kb2N1bWVudDoNCiAgICB0aGVtZTogdW5pdGVkDQogICAgaGlnaGxpZ2h0OiB0YW5nbw0KLS0tDQpgYGANCjwvYnI+DQoNCiMjIETDqWZpbmlyIHNhIHByb3ByZSBmZXVpbGxlICBDU1MgOg0KDQpgYGB5YW1sDQotLS0NCnRpdGxlOiAiRXhlbXBsZSINCm91dHB1dDoNCiAgaHRtbF9kb2N1bWVudDoNCiAgICB0aGVtZTogbnVsbA0KICAgIGhpZ2hsaWdodDogbnVsbA0KICAgIGNzczogc3R5bGVzLmNzcw0KLS0tDQpgYGANCg0KPC9icj4NCg0KIyMgQXBwbGlxdWVyIGRlcyBzdHlsZXMgcHLDqWTDqWZpbmlzIHN1ciBkZXMgYmxvY3MgZGUgcsOpc3VsdGF0cw0KDQotIFBlcnNvbm5hbGlzZXIgbGVzIGJsb2NzIGRlIGNvZGUgYXZlYyBsZXMgb3B0aW9ucyBgY2xhc3Muc291cmNlYCBldCBgY2xhc3Mub3V0cHV0YDogW2NsYXNzZXMgQ1NTIHByw6lkw6lmaW5pZXNdKGh0dHBzOi8vZ2V0Ym9vdHN0cmFwLmNvbS9kb2NzLzMuNC9jc3MvI2hlbHBlci1jbGFzc2VzKSBxdSdvbiBwZXV0IGNoYW5nZXIgb3Ugbm9uOiAiYmctcHJpbWFyeSIsICJiZy1zdWNjZXNzIiwgImJnLWluZm8iLCAiYmctd2FybmluZyIsICJiZy1kYW5nZXIiDQoNCioqQ29kZToqKg0KYGBgYA0KYGBge3IgY2xhc3Mub3V0cHV0PSJiZy1pbmZvIn1gciAnJ2ANCjEgKyAxDQpgYGANCmBgYGANCg0KKipSw6lzdWx0YXQ6KioNCmBgYHtyIGNsYXNzLm91dHB1dD0iYmctaW5mbyJ9DQoxKzENCmBgYA0KDQoqKkNvZGU6KioNCmBgYGANCmBgYHtyIGNsYXNzLm91dHB1dD0iYmctZGFuZ2VyIn1gciAnJ2ANCjEgKyAxDQpgYGANCmBgYGANCioqUsOpc3VsdGF0OioqDQpgYGB7ciBjbGFzcy5vdXRwdXQ9ImJnLWRhbmdlciJ9DQoxKzENCmBgYA0KDQo8YnI+DQoNCiMjIETDqWZpbmlyIHNlcyBwcm9wcmVzIHN0eWxlcyBkYW5zIGxlIGZpY2hpZXIgLnJtZA0KDQoxLiBEw6lmaW5pciBsZSBzdHlsZSBwb3VyIHVuZSBjbGFzc2UgYHJlc3VsdGF0YDoNCg0KYGBgeWFtbA0KYGBge2NzcywgZWNobz1GQUxTRX0NCi5yZXN1bHRhdCB7DQogIGJhY2tncm91bmQtY29sb3I6IHJlZDsNCiAgYm9yZGVyOiAzcHggc29saWQgYmx1ZTsNCiAgZm9udC13ZWlnaHQ6IGJvbGQ7DQp9DQpgYGANCmBgYA0KDQoyLiBBc3NpZ25lciBsYSBjbGFzc2UgYHJlc3VsdGF0YCBhdXggYmxvY3MgYXZlYyBsJ29wdGlvbiBgY2xhc3Muc291cmNlYC4NCg0KKipDb2RlOioqDQpgYGBgDQpgYGB7ciBjbGFzcy5zb3VyY2U9InJlc3VsdGF0In1gciAnJ2ANCm10Y2Fyc1sxOjUsICJtcGciXQ0KYGBgDQpgYGBgDQoqKlLDqXN1bHRhdDoqKg0KYGBge3IgY2xhc3Muc291cmNlPSJyZXN1bHRhdCJ9DQptdGNhcnNbMTo1LCAibXBnIl0NCmBgYA0KDQoNCioqKg0KDQo8L2JyPg0KDQojIEZlcm1lciBsZXMgYmxvY3MgZGUgY29kZQ0KDQpQb3VyIGxpbWl0ZXIgbGEgcGxhY2UgcXVlIHByZW5uZW50IGxlcyBibG9jcyBkZSBjb2RlLCBpbCBwb3NzaWJsZSBkZSBsZXMgImZlcm1lciIgcGFyIGTDqWZhdXQgYXZlYyBsJ29wdGlvbiBgY29kZV9mb2xkYCBkYW5zIGxlIGNoYW1wIGh0bWxfZG9jdW1lbnQgZGUgbCdlbnTDqnRlIG91IGRlIGxpbWl0ZXIgbGEgbG9uZ3VldXIgYXZlYyB1biBbc2Nyb2xsIGRhbnMgY3NzXShodHRwczovL2Jvb2tkb3duLm9yZy95aWh1aS9ybWFya2Rvd24tY29va2Jvb2svaHRtbC1zY3JvbGwuaHRtbCkNCg0KDQpgYGB5YW1sDQotLS0NCnRpdGxlOiAiRXhlbXBsZSINCm91dHB1dDoNCiAgaHRtbF9kb2N1bWVudDoNCiAgICBjb2RlX2ZvbGRpbmc6IGhpZGUNCi0tLQ0KYGBgDQoNCklsIG4nZXN0IHBhcyBwb3NzaWJsZSBkZSBwbGllciBzZXVsZW1lbnQgbGUgcsOpc3VsdGF0IGRlIGNvZGUgYXZlYyBkZXMgb3B0aW9ucyBkZSBibG9jcyBkZSBjb2RlIG1haXMgcGV1dCBzZSBmYWlyZSBhdmVjIGR1IGphdmFzY3JpcHQuIElsIGVzdCB0b3V0ZWZvaXMgcG9zc2libGUgZGUgbGltaXRlciBsYSBoYXV0ZXVyIGR1IGJsb2MgZW4gYWpvdXRhbnQgdW4gZMOpcm91bGVtZW50IGF2ZWMgbGVzIG9wdGlvbnMgYGF0dHIuc291cmNlYCBldCBgYXR0ci5vdXRwdXRgDQoNCioqQ29kZToqKg0KYGBgYG1kDQpgYGB7ciwgYXR0ci5vdXRwdXQ9J3N0eWxlPSJtYXgtaGVpZ2h0OiAxMDBweDsiJ31gciAnJ2ANCjE6MzAwDQpgYGANCmBgYGANCg0KDQoqKlLDqXN1bHRhdDoqKg0KDQpgYGB7ciwgYXR0ci5vdXRwdXQ9J3N0eWxlPSJtYXgtaGVpZ2h0OiAxMDBweDsiJ30NCjE6MzAwDQpgYGANCg0KDQpWb2lyOiBodHRwczovL2Jvb2tkb3duLm9yZy95aWh1aS9ybWFya2Rvd24tY29va2Jvb2svaG9vay1zY3JvbGwuaHRtbA0KDQpQb3VyIGRlIGJvbm5lcyBtb2RpZnMgaHRtbDogaHR0cHM6Ly9ib29rZG93bi5vcmcveWlodWkvcm1hcmtkb3duLWNvb2tib29rL2N1c3RvbS1ibG9ja3MuaHRtbA0KDQoqKioNCg0KPC9icj4NCg0KIyBCbG9jcyBkZSBjb2RlIGVuIGFwcGVuZGljZQ0KDQotIFBhciBkw6lmYXV0IGxlcyBibG9jcyBkZSBjb2RlIGV0IGxldXJzIHLDqXN1bHRhdHMgYXBwYXJhaXNzZW50IMOgIGxldXIgZW1wbGFjZW1lbnQgZGFucyBsZSB0ZXh0ZSwgbWFpcyBvbiBwZXV0IGFqb3V0ZXIgdG91cyBsZXMgYmxvY3MgZGUgY29kZSDDoCBsYSBmaW4gZHUgZG9jdW1lbnQgZW4gW2FwcGVuZGljZV0oaHR0cHM6Ly9ib29rZG93bi5vcmcveWlodWkvcm1hcmtkb3duLWNvb2tib29rL2NvZGUtYXBwZW5kaXguaHRtbCkgZW4gYWpvdXRhbnQgdW4gYmxvYyBkZSBjb2RlIGF2ZWMgbGVzIGFyZ3VtZW50cyBgcmVmLmxhYmVsYCBldCBsYSBmb25jdGlvbiBga25pdHI6OmFsbF9sYWJlbHNgLg0KLSBMJ2FyZ3VtZW50IGBlY2hvID0gRkFMU0VgIGRldnJhIMOqdHJlIGFqb3V0w6kgYXV4IGJsb2NzIGRlIGNvZGUuDQoNCioqY29kZToqKg0KYGBgYA0KYGBge3IgcmVmLmxhYmVsPWtuaXRyOjphbGxfbGFiZWxzKCksIGVjaG89VFJVRSwgZXZhbD1GQUxTRX1gciAnJ2ANCmBgYA0KYGBgYA0KDQoqKioNCg0KPC9icj4NCg0KIyBTw6lwYXJlciBsZSBibG9jIGRlcyByw6lzdWx0YXRzDQoNClByw6lzZW50ZXIgbGUgcsOpc3VsdGF0IGQndW4gYmxvYyBkZSBjb2RlcyBhaWxsZXVycyBxdWUgZGlyZWN0ZW1lbnQgZGVzc291cw0KDQotIE9uIHByw6lzZW50ZSBsZSBibG9jIGRlIGNvZGUNCg0KYGBgYA0KYGBge3IgZ3JhcGhpcXVlMSwgZGV2PSdwbmcnLCBmaWcuc2hvdz0naGlkZSd9YHIgJydgDQpwbG90KGNhcnMpDQpgYGANCmBgYGANCg0KLSBEYW5zIHVuZSBhdXRyZSBzZWN0aW9uIGR1IGRvY3VtZW50LCBvbiBhcHBlbCBsZSByw6lzdWx0YXQgZCd1biBibG9jIHByw6ljw6lkYW50IGF2ZWMgbGEgZm9uY3Rpb24gYGtuaXRyOjpmaWdfY2h1bmtgIGV0IHNvbiAqbGFiZWwqOiBgKGByIGtuaXRyOjpmaWdfY2h1bmsoJ2dyYXBoaXF1ZTEnLCAncG5nJylgKWANCg0KYGBgYA0KYGBge3J9YHIgJydgDQohW0dyYXBoaXF1ZSBwcm92ZW5hbnQgZCd1biBibG9jIHByw6ljw6lkYW50XShgciBrbml0cjo6ZmlnX2NodW5rKCdncmFwaGlxdWUxJywgJ3BuZycpYClgDQpgYGANCmBgYGANCg0KKioqDQoNCjwvYnI+DQoNCiMgVMOpbMOpY2hhcmdlbWVudCBkdSBmaWNoaWVyIC5ybWQNCg0KQWpvdXRlciB1biBib3V0b24gQ29kZSAtIERvd25sb2FkIC5SbWQgcG91ciBwZXJtZXR0cmUgbGUgdMOpbMOpY2hhcmdlbWVudCBkdSBmaWNoaWVyIFIgTWFya2Rvd24gYXZlYyBsJ29wdGlvbnMgYGNvZGVfZG93bmxvYWRgIGRhbnMgbGUgWUFNTA0KDQpgYGBgeWFtbA0KLS0tDQp0aXRsZTogIkV4ZW1wbGUiDQpvdXRwdXQ6DQogIGh0bWxfZG9jdW1lbnQ6DQogICAgY29kZV9kb3dubG9hZDogVFJVRQ0KLS0tDQpgYGBgDQoNCioqKg0KDQo8L2JyPg0KDQoNCiMgVGFibGVhdXgNCg0KLSBQYXIgZMOpZmF1dCBSIE1hcmtkb3duIHByw6lzZW50ZSBsZXMgdGFibGVhdXggY29tbWUgZGFucyBsYSBjb25zb2xlIFIgbWFpcyBwbHVzaWV1cnMgb3B0aW9ucyBwZXJtZXR0ZW50IGRlIG1vZGlmaWVyIGxldXIgbWlzZSBlbiBwYWdlLiANCi0gTGEgbW9kaWZpY2F0aW9uIGRlIHRhYmxlYXV4IHBldXQgw6p0cmUgcGx1cyBvdSBtb2lucyBjb21wbGV4ZSBldCBwZXV0IHZhcmllciBzZWxvbiBsZSBmb3JtYXQgZGUgc29ydGllLg0KLSBGYcOnb24gbGEgcGx1cyBlZmZpY2FjZSBkZSBwcsOpc2VudGVyIHVuIHRhbGJlYXUgZXN0IGF2ZWMgbGEgZm9uY3Rpb24gW2tuaXRyOjprYWJsZSgpXShodHRwczovL2Jvb2tkb3duLm9yZy95aWh1aS9ybWFya2Rvd24tY29va2Jvb2sva2FibGUuaHRtbCNrYWJsZS1mb3JtYXRzKSBxdWkgcG9zc8OoZGUgcGx1c2lldXJzIGFyZ3VtZW50cyBwb3VyIHBhcmFtw6l0cmVyIGxhIHByw6lzZW50YXRpb24gZGUgdGFibGVhdXguDQotIFZvaXIgYXVzc2kgW3BhY2thZ2Uga2FibGVFeHRyYV0oaHR0cHM6Ly9oYW96aHUyMzMuZ2l0aHViLmlvL2thYmxlRXh0cmEvKSBxdWkgcGV1dCBjcsOpZXIgdGFibGVhdSBwb3VyIGh0bWwsIHBkZiBldCB3b3JkLg0KDQotIFBldXQgaW5jbHVyZSBsw6lnZW5kZSBhdmVjIG9wdGlvbiBjYXB0aW9uID0gDQoNCioqQ29kZToqKg0KDQpgYGBgDQpgYGB7ciB0YWJsZS1jYXJzLCByZXN1bHRzID0gImFzaXMifWByICcnYA0Ka25pdHI6OmthYmxlKGNhcnNbMTo1LCBdLCBjYXB0aW9uID0gJ1VuIHRpdHJlJykNCmBgYA0KYGBgYA0KDQoqKlLDqXN1bHRhdDoqKg0KYGBge3IgdGFibGUtY2FycywgcmVzdWx0cyA9ICJhc2lzIn0NCmtuaXRyOjprYWJsZShjYXJzWzE6NSwgXSwgY2FwdGlvbiA9ICdVbiB0aXRyZScpDQpgYGANCg0KKioqDQoNCjwvYnI+DQoNCiMjIyBNb2RpZmllciBsYSBwcsOpc2VudGF0aW9uIGRlcyB0YWJsZWF1eA0KDQotIE9wdGlvbiBgZGZfcHJpbnRgIGRhbnMgbGUgWUFNTCBwb3VyIHBhcmFtw6l0cmVyIGxhIHByw6lzZW50YXRpb24gZGUgdGFibGVhdXggcG91ciBsZXMgZG9jdW1lbnRzIGBodG1sX2RvY3VtZW50YA0KLSBWYWxldXJzIHBvc3NpYmxlczogZGVmYXVsdCwga2FibGUsIHRpYmJsZSwgcGFnZWQgKHBhZ2luZXIgbGVzIGxpZ25lcyBkZSB0YWJsZWF1eCkNCg0KYGBgeWFtbA0KLS0tDQp0aXRsZTogIkV4ZW1wbGUiDQpvdXRwdXQ6DQogIGh0bWxfZG9jdW1lbnQ6DQogICAgZGZfcHJpbnQ6IHBhZ2VkDQotLS0NCmBgYA0KDQpgciAnJ2BgYGB7cn0NCm10Y2Fycw0KYGBgDQoNClBvdXIgbCdvcHRpb24gYHBhZ2VkYCwgcGx1c2lldXJzIGFyZ3VtZW50cyBwZXV2ZW50IMOqdHJlIHNww6ljaWZpw6lzIGRhbnMgY2hhcXVlIGNvZGUgY2h1bmsgKCBtYXgucHJpbnQsIHJvd3MucHJpbnQsIGNvbHMucHJpbnQsIHBhZ2VzLnByaW50LHJvd25hbWVzLnByaW50IC4uLiAgKQ0KDQoqKkNvZGU6KioNCmBgYGANCmBgYHtyIGNvbHMucHJpbnQ9Mywgcm93cy5wcmludD0zfWByICcnYA0KbXRjYXJzDQpgYGANCmBgYGANCioqUsOpc3VsdGF0czoqKg0KYGBge3IgY29scy5wcmludD0zLCByb3dzLnByaW50PTN9DQptdGNhcnMNCmBgYA0KDQoqKioNCg0KPC9icj4NCg0KIyBDaXRhdGlvbnMgZXQgYmlibGlvZ3JhcGhpZQ0KDQotIFBsdXNpZXVycyBmYcOnb25zIGQnaW5zw6lyZXIgZGVzIGNpdGF0aW9ucyBtYWlzIGxhIHBsdXMgcmVjb21tYW5kw6llIGVzdCBkJ3V0aWxpc2VyIGRlIHTDqWzDqWNoYXJnZXIgc2VzIHLDqWbDqXJlbmNlcyBkYW5zIHVuIGZpY2hpZXIgQmliVGVYICguYmliKS4gDQotIEluY2x1cmUgZW5zdWl0ZSBkYW5zIGwnZW50w6p0ZSBsJ2FyZ3VtZW50IGJpYmxpb2dyYXBoeSBkYW5zIGxlIFlBTUwgZXQgZMOpZmluaSBzYSB2YWxldXIgYXZlYyBsZSBjaGVtaW4gdmVycyBsZSBmaWNoaWVyIEJpYlRlWCBzdXIgc29uIHBvc3RlLiANCi0gUG91ciBjaGFuZ2VyIGxlIGZvcm1hdCBkZXMgY2l0YXRpb25zLCB0w6lsw6ljaGFyZ2VyIGxlIHN0eWxlIChmaWNoaWVyIGNzbCkgw6AgcGFydGlyIGRlIGxhIGxpc3RlIGRlIFtab3Rlcm9dKGh0dHBzOi8vd3d3LnpvdGVyby5vcmcvc3R5bGVzKSBldCBsJ2luY2x1cmUgYXVzc2kgZGFucyBsZSBZQU1MLg0KDQpgYGB5YW1sDQotLS0NCnRpdGxlOiAiRXhlbXBsZSINCm91dHB1dDoNCiAgaHRtbF9kb2N1bWVudDoNCmJpYmxpb2dyYXBoeTogY2l0YXRpb25zLmJpYg0KY3NsOiBhcGEtNXRoLWVkaXRpb24uY3NsDQotLS0NCmBgYA0KDQotIFBhciBkw6lmYXV0IGxhIGJpYmxpb2dyYXBoaWUgYXBwYXJhaXRyYSDDoCBsYSBmaW4gZHUgZG9jdW1lbnQsIG1haXMgb24gcGV1dCBmb3JjZXIgbGUgZMOpcGxhY2VtZW50IGRlcyByw6lmw6lyZW5jZXMgZW4gdXRpbGlzYW50IHVuIGRpdjogYDxkaXYgaWQ9InJlZnMiPjwvZGl2PmANCg0KLSBwYWNrYWdlIGNpdHIgDQoNCi0gQXByw6hzIGRhbnMgdGV4dGUgaW5jbHVyZSBbQFJlZi0xXSBvdSBbQHJlZi0xOyBAcmVmLTI7IEByZWYtM10gcG91ciBwYXJlbnRow6hzZXMgb3UgQFItYmFzZSBwb3VyIHLDqWbDqXJlciDDoCBlbnRyw6llIGRhbnMgbGUgZmljaGllci4gUGFuZG9jIHZhIGfDqW7DqXJlciBhdXRvbWF0aXF1ZW1lbnQgdW5lIHLDqWbDqXJlbmNlIMOgIGxhIGZpbiBkdSBkb2N1bWVudC4NCg0KLSBQb3VyIGluY2x1cmUgdW4gdGl0cmUgZGFucyBsYSBiaWJsaW9ncmFwaGllIHF1aSBuJ2EgcGFzIMOpdMOpIGNpdMOpZSBkYW5zIGxlIGRvY3VtZW50LCBpbCBmYXV0IGTDqWZpbmlyIHVuIGNoYW1wIG5vY2l0ZSBkYW5zIGwnZW50w6p0ZQ0KDQpgYGBgDQotLS0NCm5vY2l0ZTogJ0AqJw0KLS0tDQoNCi0tLQ0Kbm9jaXRlOiB8DQogIEBjaXQxLCBAY2l0Mg0KLS0tDQpgYGBgDQoNCjxicj4NCltCaWJsaW9ncmFwaGllcyBhbmQgQ2l0YXRpb25zXShodHRwczovL3JtYXJrZG93bi5yc3R1ZGlvLmNvbS9hdXRob3JpbmdfYmlibGlvZ3JhcGhpZXNfYW5kX2NpdGF0aW9ucy5odG1sKQ0KDQoqKioNCg0KPC9icj4NCg0KIyBUcmFuc2Zvcm1lciB1biBzY3JpcHQgZW4gcHLDqXNlbnRhdGlvbiAuUm1kDQoNCi0gSWwgZXN0IHBvc3NpYmxlIGRlIGfDqW7DqXJlciB1biBkb2N1bWVudCBkZSBwcsOpc2VudGF0aW9uIGRpcmVjdGVtZW50IMOgIHBhcnRpciBkJ3VuIGZpY2hpZXIgZGUgc2NyaXB0IFIgZGFucyBSU3R1ZGlvIGF2ZWMgbGEgZm9uY3Rpb24gYGtuaXRyOjpzcGluKClgIC0gKEN0cmwgLyBDbWQgKyBTaGlmdCArIEspLiANCi0gU29sdXRpb24gdXRpbGUgc2kgcGFzIGJlYXVjb3VwIGRlIHRleHRlIMOgIGFqb3V0ZXIgZGFucyBhbmFseXNlLg0KLSBJbCBmYXVkcmEgcGFyIGNvbnRyZSBhcHBsaXF1ZXIgdW5lIHN5bnRheGUgcGFydGljdWxpw6hyZSDDoCBzb24gZmljaGllciBkZSBzY3JpcHQuDQotIElsIGVzdCBhdXNzaSBwb3NzaWJsZSBkZSBmYWlyZSBsZSBjb250cmFpcmUgZXQgZGUgdHJhbnNmb3JtZXIgdW4gZG9jdW1lbnQgbWFya2Rvd24gZW4gc2NyaXB0IGF2ZWMgYGtuaXQ6OnB1cmxgLg0KDQo8YnI+DQoNCi0gVm9pciA6IGh0dHBzOi8vYm9va2Rvd24ub3JnL3lpaHVpL3JtYXJrZG93bi1jb29rYm9vay9zcGluLmh0bWwgDQotIFZvaXIgOiBodHRwczovL2RlYW5hdHRhbGkuY29tLzIwMTUvMDMvMjQva25pdHJzLWJlc3QtaGlkZGVuLWdlbS1zcGluLyANCg0KKioqDQoNCjwvYnI+DQoNCiMgRG9jdW1lbnQgV29yZA0KDQpQb3VyIGNyw6llciB1biBkb2N1bWVudCBXb3JkIMOgIHBhcnRpciBkZSBSIE1hcmtkb3duLCBvbiBzcMOpY2lmaWUgbGUgZm9ybWF0IGB3b3JkX2RvY3VtZW50YCBkYW5zIGwnZW50w6p0ZSBZQU1MIGR1IGRvY3VtZW50Lg0KDQpgYGB5YW1sDQotLS0NCnRpdGxlOiAiSGFiaXRzIg0KYXV0aG9yOiBKb2huIERvZQ0KZGF0ZTogTWFyY2ggMjIsIDIwMDUNCm91dHB1dDogDQogIHdvcmRfZG9jdW1lbnQ6DQogICAgcmVmZXJlbmNlX2RvY3g6IG15LXN0eWxlcy5kb2N4DQotLS0NCmBgYA0KDQotIE9uIHBldXQgY3LDqWVyIHVuICp0ZW1wbGF0ZSogKihzdHlsZSByZWZlcmVuY2UgZG9jdW1lbnQqKSBwb3VyIG1vZGlmaWVyIGxhIG1pc2UgZW4gcGFnZSBkdSBkb2N1bWVudCB3b3JkLg0KLSBDZSB0ZW1wbGF0ZSBkb2l0IGTDqWJ1dGVyIHBhciB1biBkb2N1bWVudCBSbWQgYXZlYyBsZSBmb3JtYXQgd29yZF9kb2N1bWVudC4NCi0gT3V2cmlyIGVuc3VpdGUgbGUgZG9jdW1lbnQgZGFucyBXb3JkIGV0IG1vZGlmaWVyIGxlcyBzdHlsZXMgZXQgZW5yZWdpc3RyZXIgc291cyB1biBhdXRyZSBub20gZW4gZmljaGllciBgLmRvY3hgIHBvdXIgZW5zdWl0ZSBsJ2Fqb3V0ZXIgZGFucyBsZSBZQU1MLg0KDQoNClZvaXI6DQoNCi0gaHR0cHM6Ly92aW1lby5jb20vMTEwODA0Mzg3DQotIGh0dHBzOi8vYm9va2Rvd24ub3JnL3lpaHVpL3JtYXJrZG93bi1jb29rYm9vay93b3JkLXRlbXBsYXRlLmh0bWwNCi0gaHR0cHM6Ly9ybWFya2Rvd24ucnN0dWRpby5jb20vYXJ0aWNsZXNfZG9jeC5odG1sDQoNCioqKg0KDQo8L2JyPg0KDQojIEJvb2tkb3duDQoNCi0gRGFucyBSU3R1ZGlvOiBGaWxlIC0+IE5ldyBQcm9qZWN0IC0+IE5ldyBEaXJlY3RvcnkgLT4gQm9vayBQcm9qZWN0IHVzaW5nIGJvb2tkb3duDQoNCi0gQ3LDqWVyIHBvdXIgcsOpZGlnZXIgZGUgbG9uZ3MgZG9jdW1lbnRzIGNvbW1lIHVuIGxpdnJlIMOgIHBhcnRpciBkZSBwbHVzaWV1cnMgZG9jdW1lbnRzIFIgTWFya2Rvd24gb8O5IGfDqW7DqXJhbGVtZW50IGNoYXF1ZSBmaWNoaWVyIGVzdCB1biBjaGFwaXRyZS4NCg0KLSBMZSBwcmVtaWVyIGRvY3VtZW50IGVzdCBnw6luw6lyYWxlbWVudCBub21tw6kgaW5kZXguUm1kIGV0IGMnZXN0IGxlIHNldWwgb8O5IHNlIHRyb3V2ZSBsZSBZQU1MLg0KDQotIERvaXQgw6lnYWxlbWVudCB0cm91dmVyIGRhbnMgbCdlbnTDqnRlOiBzaXRlOiBib29rZG93bjo6Ym9va2Rvd25fc2l0ZSBwb3VyIHF1ZSBybWFya2Rvd24gc2FjaGUgcXUnaWwgZmF1dCB1dGlsaXNlciBib29rZG93biBwb3VyIGNvbnN0cnVpcmUgdG91cyBsZXMgZmljaGllcnMgZXQgcGFzIHNldWxlbWVudCB1biBmaWNoaWVyIHJtZC4NCg0KLSBQbHVzaWV1cnMgZm9ybWF0cyBkZSBvdXRwdXQgcGV1dmVudCDDqnRyZSB1dGlsaXPDqXM6IA0KICAtIGJvb2tkb3duOjpnaXRib29rDQogIC0gYm9va2Rvd246OnBkZl9ib29rDQogIC0gYm9va2Rvd246OndvcmRfZG9jdW1lbnQyDQogIC0gYm9va2Rvd246OmVwdWJfYm9vaw0KDQpDb25zdHJ1aXQgbGVzIGZpY2hpZXIgZW4gYXBwZWxsYW50IGxhIGZvbmN0aW9uIGJvb2tkb3duOjpyZW5kZXJfYm9vaygnaW5kZXguUm1kJykNCg0KLSBbw4ljcmlyZSBzYSB0aMOoc2UgYXZlYyBib29rZG93bl0oaHR0cHM6Ly9lZGRqYmVycnkubmV0bGlmeS5jb20vcG9zdC93cml0aW5nLXlvdXItdGhlc2lzLXdpdGgtYm9va2Rvd24vKQ0KLSBbRXhlbXBsZXMgZGUgc2l0ZXMgd2ViIGF2ZWMgYmxvZ2Rvd25dKGh0dHBzOi8vZ2l0aHViLmNvbS9yYmluZCkNCg0KDQo8c3R5bGU+DQoucmVzdWx0YXQgew0KICBiYWNrZ3JvdW5kLWNvbG9yOiByZWQ7DQogIGJvcmRlcjogM3B4IHNvbGlkIGJsdWU7DQogIGZvbnQtd2VpZ2h0OiBib2xkOw0KfQ0KPC9zdHlsZT4NCg0KDQp2ZXJiYXRpbSBpbmxpbmUgZXhwcmVzc2lvbg0KDQpgYCBgcg0KMSsxYCBgYA0KDQoNClZlcmJhdGltIGNvZGUgY2h1bmtzDQpgYGBgDQpgYGB7ciwgZXZhbD1UUlVFfWByICcnYA0KMSArIDENCmBgYA0KYGBgYA0KDQoNCmJsb2MgZ3JpcyB0ZXh0ZSBub2lyDQpgYGBtYXJrZG93bg0KIyBUaXRyZSBub24gbnVtw6lyb3TDqSB7LX0NCmBgYA0KYmxvYyBncmlzIHRleHRlIHZlcnQNCmBgYHlhbWwNCiMgVGl0cmUgbm9uIG51bcOpcm90w6kgey19DQpgYGANCmJsb2MgYmxhbmMgdGV4dGUgbm9pcg0KYGBgDQojIFRpdHJlIG5vbiBudW3DqXJvdMOpIHstfQ==</div>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeSourceEmbed("options.Rmd");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

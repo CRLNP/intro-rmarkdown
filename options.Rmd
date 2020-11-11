@@ -1,0 +1,567 @@
+---
+title: "Rmarkdown - Paramétrages utiles"
+author: "Caroline Patenaude^[Institution: Université de Montréal, caroline.patenaude@umontreal.ca]"
+date: "`r Sys.Date()`"
+output: 
+  html_document: 
+    theme: yeti
+    highlight: haddock
+    toc: true
+    toc_float: 
+      collapsed: false
+      Smooth_scroll: false
+    toc_depth: 3
+    code_download: true
+    df_print: paged
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+# Table des matières
+
+Inclure une table des matières et spécifier (optionnellement) des sous-options de la TDM 
+
+1. Inclure une table des matières, utiliser l'option `toc` 
+2. `toc_depth` pour spécifier le nombre de titres (3 par défaut)
+3. `toc_float` pour que la TDM soit toujours visible dans la marge gauche 
+4. `collapsed` (`TRUE` par défaut) pour déterminer si la table est étendue ou compacte par défaut (seulement titres visibles)
+5. `smooth_scroll` (`TRUE` par défaut) détermine si la TDM défile en même temps que le défilement de la page
+
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    toc_float: true
+    collapsed: false
+    smooth_scroll: false
+---
+```
+
+***
+
+</br>
+
+# Titres numérotés
+
+Numéroter les titres avec l'option `number_sections` 
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    number_sections: true
+---
+```
+
+```
+# (H1)  = 1.
+## (H2) = 1.1 (attention s'il n'y a pas de H1, ça donnera 0.1)
+```
+
+- Pour ne pas numéroter certains titres: ajouter `{-}` ou `{.unnumbered}` après le titre
+
+
+***
+
+</br>
+
+# Transformer les sous-titres en onglets 
+
+Ajouter l'attribut `.tabset` au titre transforme tous les sous-titres en onglets au lieu de sous-sections (https://bookdown.org/yihui/rmarkdown-cookbook/html-tabs.html)
+
+**Code:**
+
+```markdown
+## Exemple d'onglets {.tabset}
+
+### Onglet 1
+
+Contenu de l'onglet 1
+
+### Onglet 2
+
+Contenu de l'onglet 2
+
+## {-}
+```
+
+- Il est aussi possible de spécifier 2 attributs supplémentaires pour les onglets: 
+
+1. `.tabset-fade`: les onglets vont disparaitre et apparaitre en se déplacant de l'un à l'autre
+2. `.tabset-pills` apparence des onglets en "pill":
+
+```markdown
+## Quarterly Results {.tabset .tabset-fade .tabset-pills}
+```
+
+- Pour finir un tabset, commencer un nouveau *header* du niveau supérieur vide pour continuer avec des paragraphes réguliers 
+
+
+**Résultat:**
+
+## Exemple d'onglets {.tabset}
+
+### Onglet 1
+
+Contenu de l'onglet 1
+
+### Onglet 2
+
+Contenu de l'onglet 2
+
+## {-}
+
+
+***
+
+</br>
+
+# Mise en forme des graphiques
+
+Plusieurs options possibles à inclure dans le YAML:
+
+- `fig_width` et  `fig_height`: 7x5 par défaut.
+
+- `fig_caption` : légende des graphiques.
+
+- `dev`: gestion des formats de graphiques (`png` par défaut).
+
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    fig_width: 5
+    fig_height: 4
+    fig_caption: true
+---
+```
+Options de mise en forme de graphiques peuvent aussi être indiquées dans chaque bloc:  
+
+`fig.width=` et `fig.height=` (en pouces), `out.width=` et `out.height=` (en %), `fig.align=` ('left', 'center', or 'right'), `fig.cap=""` (légende), `dev=` (outil graphique, "png" par défaut ou svg ou jpeg).
+
+**Code:**
+````
+```{r, out.width='25%', fig.align='center', fig.cap='Une légende'}`r ''`
+plot(cars)
+```
+````
+
+**Résultat:**
+```{r, out.width='25%', fig.align='center', fig.cap='Une légende'}
+plot(cars)
+```
+
+***
+
+</br>
+
+# Styles/CSS
+
+## Appliquer des thèmes prédéfinis:
+
+- `theme` : default, cerulean, journal, flatly, darkly, readable, spacelab, united, cosmo, lumen, paper, sandstone, simplex, yeti (null si on ne veut pas de thème, par ex si on veut utiliser son propre css)
+
+- `highlight` : pour définir l'apparence de la syntaxe: tango, pygments, kate, monochrome, espresso, zenburn, haddock, textmate (ou option `null`) 
+
+[Voir theme gallery](https://www.datadreaming.org/post/r-markdown-theme-gallery/)
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    theme: united
+    highlight: tango
+---
+```
+</br>
+
+## Définir sa propre feuille  CSS :
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    theme: null
+    highlight: null
+    css: styles.css
+---
+```
+
+</br>
+
+## Appliquer des styles prédéfinis sur des blocs de résultats
+
+- Personnaliser les blocs de code avec les options `class.source` et `class.output`: [classes CSS prédéfinies](https://getbootstrap.com/docs/3.4/css/#helper-classes) qu'on peut changer ou non: "bg-primary", "bg-success", "bg-info", "bg-warning", "bg-danger"
+
+**Code:**
+````
+```{r class.output="bg-info"}`r ''`
+1 + 1
+```
+````
+
+**Résultat:**
+```{r class.output="bg-info"}
+1+1
+```
+
+**Code:**
+````
+```{r class.output="bg-danger"}`r ''`
+1 + 1
+```
+````
+**Résultat:**
+```{r class.output="bg-danger"}
+1+1
+```
+
+<br>
+
+## Définir ses propres styles dans le fichier .rmd
+
+1. Définir le style pour une classe `resultat`:
+
+```yaml
+```{css, echo=FALSE}
+.resultat {
+  background-color: red;
+  border: 3px solid blue;
+  font-weight: bold;
+}
+```
+```
+
+2. Assigner la classe `resultat` aux blocs avec l'option `class.source`.
+
+**Code:**
+````
+```{r class.source="resultat"}`r ''`
+mtcars[1:5, "mpg"]
+```
+````
+**Résultat:**
+```{r class.source="resultat"}
+mtcars[1:5, "mpg"]
+```
+
+
+***
+
+</br>
+
+# Fermer les blocs de code
+
+Pour limiter la place que prennent les blocs de code, il possible de les "fermer" par défaut avec l'option `code_fold` dans le champ html_document de l'entête ou de limiter la longueur avec un [scroll dans css](https://bookdown.org/yihui/rmarkdown-cookbook/html-scroll.html)
+
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    code_folding: hide
+---
+```
+
+Il n'est pas possible de plier seulement le résultat de code avec des options de blocs de code mais peut se faire avec du javascript. Il est toutefois possible de limiter la hauteur du bloc en ajoutant un déroulement avec les options `attr.source` et `attr.output`
+
+**Code:**
+````md
+```{r, attr.output='style="max-height: 100px;"'}`r ''`
+1:300
+```
+````
+
+
+**Résultat:**
+
+```{r, attr.output='style="max-height: 100px;"'}
+1:300
+```
+
+
+Voir: https://bookdown.org/yihui/rmarkdown-cookbook/hook-scroll.html
+
+Pour de bonnes modifs html: https://bookdown.org/yihui/rmarkdown-cookbook/custom-blocks.html
+
+***
+
+</br>
+
+# Blocs de code en appendice
+
+- Par défaut les blocs de code et leurs résultats apparaissent à leur emplacement dans le texte, mais on peut ajouter tous les blocs de code à la fin du document en [appendice](https://bookdown.org/yihui/rmarkdown-cookbook/code-appendix.html) en ajoutant un bloc de code avec les arguments `ref.label` et la fonction `knitr::all_labels`.
+- L'argument `echo = FALSE` devra être ajouté aux blocs de code.
+
+**code:**
+````
+```{r ref.label=knitr::all_labels(), echo=TRUE, eval=FALSE}`r ''`
+```
+````
+
+***
+
+</br>
+
+# Séparer le bloc des résultats
+
+Présenter le résultat d'un bloc de codes ailleurs que directement dessous
+
+- On présente le bloc de code
+
+````
+```{r graphique1, dev='png', fig.show='hide'}`r ''`
+plot(cars)
+```
+````
+
+- Dans une autre section du document, on appel le résultat d'un bloc précédant avec la fonction `knitr::fig_chunk` et son *label*: `(`r knitr::fig_chunk('graphique1', 'png')`)`
+
+````
+```{r}`r ''`
+![Graphique provenant d'un bloc précédant](`r knitr::fig_chunk('graphique1', 'png')`)`
+```
+````
+
+***
+
+</br>
+
+# Téléchargement du fichier .rmd
+
+Ajouter un bouton Code - Download .Rmd pour permettre le téléchargement du fichier R Markdown avec l'options `code_download` dans le YAML
+
+````yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    code_download: TRUE
+---
+````
+
+***
+
+</br>
+
+
+# Tableaux
+
+- Par défaut R Markdown présente les tableaux comme dans la console R mais plusieurs options permettent de modifier leur mise en page. 
+- La modification de tableaux peut être plus ou moins complexe et peut varier selon le format de sortie.
+- Façon la plus efficace de présenter un talbeau est avec la fonction [knitr::kable()](https://bookdown.org/yihui/rmarkdown-cookbook/kable.html#kable-formats) qui possède plusieurs arguments pour paramétrer la présentation de tableaux.
+- Voir aussi [package kableExtra](https://haozhu233.github.io/kableExtra/) qui peut créer tableau pour html, pdf et word.
+
+- Peut inclure légende avec option caption = 
+
+**Code:**
+
+````
+```{r table-cars, results = "asis"}`r ''`
+knitr::kable(cars[1:5, ], caption = 'Un titre')
+```
+````
+
+**Résultat:**
+```{r table-cars, results = "asis"}
+knitr::kable(cars[1:5, ], caption = 'Un titre')
+```
+
+***
+
+</br>
+
+### Modifier la présentation des tableaux
+
+- Option `df_print` dans le YAML pour paramétrer la présentation de tableaux pour les documents `html_document`
+- Valeurs possibles: default, kable, tibble, paged (paginer les lignes de tableaux)
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+    df_print: paged
+---
+```
+
+`r ''````{r}
+mtcars
+```
+
+Pour l'option `paged`, plusieurs arguments peuvent être spécifiés dans chaque code chunk ( max.print, rows.print, cols.print, pages.print,rownames.print ...  )
+
+**Code:**
+````
+```{r cols.print=3, rows.print=3}`r ''`
+mtcars
+```
+````
+**Résultats:**
+```{r cols.print=3, rows.print=3}
+mtcars
+```
+
+***
+
+</br>
+
+# Citations et bibliographie
+
+- Plusieurs façons d'insérer des citations mais la plus recommandée est d'utiliser de télécharger ses références dans un fichier BibTeX (.bib). 
+- Inclure ensuite dans l'entête l'argument bibliography dans le YAML et défini sa valeur avec le chemin vers le fichier BibTeX sur son poste. 
+- Pour changer le format des citations, télécharger le style (fichier csl) à partir de la liste de [Zotero](https://www.zotero.org/styles) et l'inclure aussi dans le YAML.
+
+```yaml
+---
+title: "Exemple"
+output:
+  html_document:
+bibliography: citations.bib
+csl: apa-5th-edition.csl
+---
+```
+
+- Par défaut la bibliographie apparaitra à la fin du document, mais on peut forcer le déplacement des références en utilisant un div: `<div id="refs"></div>`
+
+- package citr 
+
+- Après dans texte inclure [@Ref-1] ou [@ref-1; @ref-2; @ref-3] pour parenthèses ou @R-base pour référer à entrée dans le fichier. Pandoc va générer automatiquement une référence à la fin du document.
+
+- Pour inclure un titre dans la bibliographie qui n'a pas été citée dans le document, il faut définir un champ nocite dans l'entête
+
+````
+---
+nocite: '@*'
+---
+
+---
+nocite: |
+  @cit1, @cit2
+---
+````
+
+<br>
+[Bibliographies and Citations](https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
+
+***
+
+</br>
+
+# Transformer un script en présentation .Rmd
+
+- Il est possible de générer un document de présentation directement à partir d'un fichier de script R dans RStudio avec la fonction `knitr::spin()` - (Ctrl / Cmd + Shift + K). 
+- Solution utile si pas beaucoup de texte à ajouter dans analyse.
+- Il faudra par contre appliquer une syntaxe particulière à son fichier de script.
+- Il est aussi possible de faire le contraire et de transformer un document markdown en script avec `knit::purl`.
+
+<br>
+
+- Voir : https://bookdown.org/yihui/rmarkdown-cookbook/spin.html 
+- Voir : https://deanattali.com/2015/03/24/knitrs-best-hidden-gem-spin/ 
+
+***
+
+</br>
+
+# Document Word
+
+Pour créer un document Word à partir de R Markdown, on spécifie le format `word_document` dans l'entête YAML du document.
+
+```yaml
+---
+title: "Habits"
+author: John Doe
+date: March 22, 2005
+output: 
+  word_document:
+    reference_docx: my-styles.docx
+---
+```
+
+- On peut créer un *template* *(style reference document*) pour modifier la mise en page du document word.
+- Ce template doit débuter par un document Rmd avec le format word_document.
+- Ouvrir ensuite le document dans Word et modifier les styles et enregistrer sous un autre nom en fichier `.docx` pour ensuite l'ajouter dans le YAML.
+
+
+Voir:
+
+- https://vimeo.com/110804387
+- https://bookdown.org/yihui/rmarkdown-cookbook/word-template.html
+- https://rmarkdown.rstudio.com/articles_docx.html
+
+***
+
+</br>
+
+# Bookdown
+
+- Dans RStudio: File -> New Project -> New Directory -> Book Project using bookdown
+
+- Créer pour rédiger de longs documents comme un livre à partir de plusieurs documents R Markdown où généralement chaque fichier est un chapitre.
+
+- Le premier document est généralement nommé index.Rmd et c'est le seul où se trouve le YAML.
+
+- Doit également trouver dans l'entête: site: bookdown::bookdown_site pour que rmarkdown sache qu'il faut utiliser bookdown pour construire tous les fichiers et pas seulement un fichier rmd.
+
+- Plusieurs formats de output peuvent être utilisés: 
+  - bookdown::gitbook
+  - bookdown::pdf_book
+  - bookdown::word_document2
+  - bookdown::epub_book
+
+Construit les fichier en appellant la fonction bookdown::render_book('index.Rmd')
+
+- [Écrire sa thèse avec bookdown](https://eddjberry.netlify.com/post/writing-your-thesis-with-bookdown/)
+- [Exemples de sites web avec blogdown](https://github.com/rbind)
+
+
+<style>
+.resultat {
+  background-color: red;
+  border: 3px solid blue;
+  font-weight: bold;
+}
+</style>
+
+
+verbatim inline expression
+
+`` `r
+1+1` ``
+
+
+Verbatim code chunks
+````
+```{r, eval=TRUE}`r ''`
+1 + 1
+```
+````
+
+
+bloc gris texte noir
+```markdown
+# Titre non numéroté {-}
+```
+bloc gris texte vert
+```yaml
+# Titre non numéroté {-}
+```
+bloc blanc texte noir
+```
+# Titre non numéroté {-}
